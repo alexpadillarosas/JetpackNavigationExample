@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.blueradix.android.jetpacknavigation.ui.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.blueradix.android.jetpacknavigation.ui.menu.MainMenuFragment"
+        android:label="main_menu_fragment"
+        tools:layout="@layout/main_menu_fragment" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_chooseRecipientFragment"
+            app:destination="@id/chooseRecipientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseRecipientFragment"
+        android:name="com.blueradix.android.jetpacknavigation.ui.payment.ChooseRecipientFragment"
+        android:label="choose_recipient_fragment"
+        tools:layout="@layout/choose_recipient_fragment" >
+        <action
+            android:id="@+id/action_chooseRecipientFragment_to_paymentDetailsFragment"
+            app:destination="@id/paymentDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentDetailsFragment"
+        android:name="com.blueradix.android.jetpacknavigation.ui.payment.PaymentDetailsFragment"
+        android:label="payment_details_fragment"
+        tools:layout="@layout/payment_details_fragment" >
+        <action
+            android:id="@+id/action_paymentDetailsFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment"
+            app:popUpTo="@id/mainMenuFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.blueradix.android.jetpacknavigation.ui.payment.ConfirmationFragment"
+        android:label="confirmation_fragment"
+        tools:layout="@layout/confirmation_fragment" >
+        <action
+            android:id="@+id/action_confirmationFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
